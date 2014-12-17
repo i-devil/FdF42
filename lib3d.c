@@ -12,18 +12,15 @@
 
 #include "fdf.h"
 
-t_pt2d		ft_convert_iso(t_pt3d p)
+t_pt2d		ft_convert_iso(t_pt3d p, t_img *img)
 {
 	t_pt2d	point;
-	float	cst1;
-	float	cst2;
-
-	cst1 = 1;
-	cst2 = 1;
-	point.x = (cst1 * p.x) - (cst2 * p.y);
-	point.y = p.z + ((cst1 / 2) * p.x) + ((cst2 / 2) * p.y);
+	point.x = p.x - p.y;
+	point.y = p.z + (p.x / img->adj) + (p.y / img->adj);
 	point.x += (WIN_WIDTH / 2);
-	point.y += (WIN_HEIGHT / 4);
+	point.y -= (WIN_HEIGHT / 4);
+	point.x += img->posimgx;
+	point.y += img->posimgy;
 	return (point);
 }
 

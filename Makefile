@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME	= fdf
-SRC		= read_map.c main.c lib3d.c draw_map.c color.c hook.c draw_line.c
+SRC		= read_map.c main.c lib3d.c draw_map.c color.c hook.c draw_line.c move.c
 
 OBJ		= $(SRC:.c=.o)
 CC		= gcc

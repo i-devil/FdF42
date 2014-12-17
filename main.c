@@ -33,6 +33,10 @@ void	ft_error_fd(int fd)
 void		ft_init (t_all *all)
 {
 	all->img.alt = 1;
+	all->img.adj = 2.0;
+	all->img.posimgx = WIN_WIDTH / 8;
+	all->img.posimgy = WIN_HEIGHT / 2;
+	all->img.zoom = 20;
 }
 
 int			main(int argc, char **argv)
@@ -50,7 +54,7 @@ int			main(int argc, char **argv)
 	all.map.max = 1;
 	all.map.min = 0;
 	
-	//ft_init(all);
+	ft_init(&all);
 
 	read_map(&all, fd);
 	all.img.img = mlx_new_image(all.e.mlx, WIN_WIDTH, WIN_HEIGHT);
@@ -59,10 +63,6 @@ int			main(int argc, char **argv)
 	mlx_mouse_hook(all.e.win, mouse_hook, &all);
 	mlx_loop_hook(all.e.mlx, loop_hook, &all);
 	mlx_expose_hook(all.e.win, expose_hook, &all);
-
-	printf("ALIVE13\n");
 	mlx_loop(all.e.mlx);
-
-	printf("ALIVE14\n");
 	return (0);
 }

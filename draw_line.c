@@ -21,8 +21,19 @@ void		ft_put_pixel(t_img *img, t_pt2d p)
 
 void		ft_draw(t_img *img, t_pt3d p1, t_pt3d p2)
 {
+	t_pt2d	dp1;
+	t_pt2d	dp2;
+
+	p1.x *= img->zoom;
+	p1.y *= img->zoom;
+	p1.z *= img->alt;
+	p2.x *= img->zoom;
+	p2.y *= img->zoom;
+	p2.z *= img->alt;
 	color_alt(img, ((p1.z + p2.z) / 2));
-	ft_draw_line(img, ft_convert_iso(p1), ft_convert_iso(p2));
+	dp1 = ft_convert_iso(p1, img);
+	dp2 = ft_convert_iso(p2, img);
+	ft_draw_line(img, dp1, dp2);
 }
 
 void		ft_draw_line_sub1(t_img *img, int dx, int dy, t_pt2d p)

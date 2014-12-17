@@ -22,20 +22,16 @@ void		ft_draw_map_sub(t_all *all, int a)
 		y = 0;
 		while (y < all->map.ly)
 		{
-			ft_draw(&all->img,
-					ft_pt3d_mult(all->map.tab[a][y], 30),
-					ft_pt3d_mult(all->map.tab[a][y + 1], 30));
+			ft_draw(&all->img, all->map.tab[a][y], all->map.tab[a][y + 1]);
 			y++;
 		}
 	}
-	if (a == all->img.ly)
+	if (a == all->map.ly)
 	{
 		x = 0;
 		while (x < all->map.lx)
 		{
-			ft_draw(&all->img,
-					ft_pt3d_mult(all->map.tab[x][a], 30),
-					ft_pt3d_mult(all->map.tab[x + 1][a], 30));
+			ft_draw(&all->img, all->map.tab[x][a], all->map.tab[x + 1][a]);
 			x++;
 		}
 	}
@@ -52,12 +48,8 @@ void		ft_draw_map(t_all *all)
 		y = 0;
 		while (y < (all->map.ly))
 		{
-			ft_draw(&all->img,
-				ft_pt3d_mult(all->map.tab[x][y], 30),
-				ft_pt3d_mult(all->map.tab[x + 1][y], 30));
-			ft_draw(&all->img,
-				ft_pt3d_mult(all->map.tab[x][y], 30),
-				ft_pt3d_mult(all->map.tab[x][y + 1], 30));
+			ft_draw(&all->img,all->map.tab[x][y], all->map.tab[x + 1][y]);
+			ft_draw(&all->img, all->map.tab[x][y], all->map.tab[x][y + 1]);
 			y++;
 		}
 		x++;

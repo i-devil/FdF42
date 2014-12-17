@@ -12,14 +12,6 @@
 
 #include "fdf.h"
 
-
-void print_pt3d(t_pt3d p)
-{
-	printf("x=%d, y=%d, z=%d\n",p.x, p.y, p.z);
-}
-
-
-
 t_pt3d			**fill_map(t_all *all, t_list *lst)
 {
 	int 		i;
