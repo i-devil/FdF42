@@ -24,8 +24,8 @@
 # include <stdio.h>
 
 
-# define WIN_HEIGHT 500
-# define WIN_WIDTH 500
+# define WIN_HEIGHT 1000
+# define WIN_WIDTH 1000
 
 typedef struct 		s_env
 {
@@ -68,6 +68,7 @@ typedef struct  	s_img
 	int				type;
 	int				format;
 	int				color;
+	int				alt;
 	t_env			e;
 	t_map			map;
 }					t_img;
@@ -79,6 +80,7 @@ typedef struct  	s_all
 	t_img			img;
 	int				x;
 	int				y;
+	int				zoom;
 }					t_all;
 
 
@@ -99,7 +101,9 @@ void		ft_draw_map(t_all *all);
 t_pt3d		**fill_map(t_all *all, t_list *lst);
 void		read_map(t_all *all, int fd);
 
-void		color_alt(t_all *all);
+void		color_alt(t_img *img, int k);
+void		alt_up(t_img *img);
+void		alt_down(t_img *img);
 
 int 		loop_hook(t_all *all);
 int			key_hook(int keycode, t_all *all);
@@ -109,6 +113,9 @@ int			expose_hook(t_all *all);
 void		ft_error_fd(int fd);
 void		ft_error(int argc);
 
+
+
+void print_pt3d(t_pt3d p);
 
 
 

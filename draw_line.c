@@ -21,6 +21,7 @@ void		ft_put_pixel(t_img *img, t_pt2d p)
 
 void		ft_draw(t_img *img, t_pt3d p1, t_pt3d p2)
 {
+	color_alt(img, ((p1.z + p2.z) / 2));
 	ft_draw_line(img, ft_convert_iso(p1), ft_convert_iso(p2));
 }
 

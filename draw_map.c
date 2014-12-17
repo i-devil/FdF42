@@ -12,22 +12,15 @@
 
 #include "fdf.h"
 
-
-void print_pt3d(t_pt3d p)
-{
-	printf("x=%d, y=%d, z=%d\n",p.x, p.y, p.z);
-}
-
-
 void		ft_draw_map_sub(t_all *all, int a)
 {
 	int		x;
 	int		y;
 
-	if (a == all->map.lx -1)
+	if (a == all->map.lx)
 	{
 		y = 0;
-		while (y < all->map.ly - 1)
+		while (y < all->map.ly)
 		{
 			ft_draw(&all->img,
 					ft_pt3d_mult(all->map.tab[a][y], 30),
@@ -35,10 +28,10 @@ void		ft_draw_map_sub(t_all *all, int a)
 			y++;
 		}
 	}
-	if (a == all->img.ly - 1)
+	if (a == all->img.ly)
 	{
 		x = 0;
-		while (x < all->map.lx - 1)
+		while (x < all->map.lx)
 		{
 			ft_draw(&all->img,
 					ft_pt3d_mult(all->map.tab[x][a], 30),
@@ -54,10 +47,10 @@ void		ft_draw_map(t_all *all)
 	int		y;
 
 	x = 0;
-	while (x < (all->map.lx - 1))
+	while (x < (all->map.lx))
 	{
 		y = 0;
-		while (y < (all->map.ly - 1))
+		while (y < (all->map.ly))
 		{
 			ft_draw(&all->img,
 				ft_pt3d_mult(all->map.tab[x][y], 30),
@@ -69,6 +62,6 @@ void		ft_draw_map(t_all *all)
 		}
 		x++;
 	}
-	//ft_draw_map_sub(all, x);
-	//ft_draw_map_sub(all, y);
+	ft_draw_map_sub(all, x);
+	ft_draw_map_sub(all, y);
 }

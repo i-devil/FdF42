@@ -12,7 +12,24 @@
 
 #include "fdf.h"
 
-void		color_alt(t_all *all)
+//alt_up
+//alt_down
+//move left rightup down
+
+void		alt_up(t_img *img)
 {
-	all->img.color = 0x896A45;
+	img->alt += 1;
+}
+
+void		alt_down(t_img *img)
+{
+	img->alt -= 1;
+}
+
+void		color_alt(t_img *img, int k)
+{
+	//if (img->alt == 0)
+		//img->color = 0x7FC6BC;
+	k = k;
+	img->color = 0x7FC6BC;
 }

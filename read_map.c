@@ -13,6 +13,13 @@
 #include "fdf.h"
 
 
+void print_pt3d(t_pt3d p)
+{
+	printf("x=%d, y=%d, z=%d\n",p.x, p.y, p.z);
+}
+
+
+
 t_pt3d			**fill_map(t_all *all, t_list *lst)
 {
 	int 		i;
@@ -36,8 +43,8 @@ t_pt3d			**fill_map(t_all *all, t_list *lst)
 		lst = lst->next;
 		ft_lstsimpledelone(&tmp);
 	}
-	//all->map.lx = p.x;
-	//all->map.ly = p.y;
+	all->map.lx = p.x;
+	all->map.ly = p.y;
 	return (all->map.tab);
 }
 

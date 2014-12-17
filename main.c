@@ -30,6 +30,11 @@ void	ft_error_fd(int fd)
 	}
 }
 
+void		ft_init (t_all *all)
+{
+	all->img.alt = 1;
+}
+
 int			main(int argc, char **argv)
 {
 	t_all	all;
@@ -48,23 +53,11 @@ int			main(int argc, char **argv)
 	//ft_init(all);
 
 	read_map(&all, fd);
-
-	printf("ALIVE7\n");
 	all.img.img = mlx_new_image(all.e.mlx, WIN_WIDTH, WIN_HEIGHT);
-
-	printf("ALIVE8\n");
 	all.img.data = mlx_get_data_addr(all.img.img, &all.img.bpp, &all.img.size_line, &all.img.endian);
-
-	printf("ALIVE9\n");
 	mlx_key_hook(all.e.win, key_hook, &all);
-
-	printf("ALIVE10\n");
 	mlx_mouse_hook(all.e.win, mouse_hook, &all);
-
-	printf("ALIVE11\n");
 	mlx_loop_hook(all.e.mlx, loop_hook, &all);
-
-	printf("ALIVE12\n");
 	mlx_expose_hook(all.e.win, expose_hook, &all);
 
 	printf("ALIVE13\n");

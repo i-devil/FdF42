@@ -26,6 +26,10 @@ int			key_hook(int keycode, t_all *all)
 	printf("Key: %d\n", keycode);
 	if (keycode == 65307)
 		exit (0);
+	if (keycode == 65451)
+		alt_up(&all->img);
+	if (keycode == 65453)
+		alt_down(&all->img);
 	return (0);
 }
 
