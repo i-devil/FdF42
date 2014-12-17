@@ -6,7 +6,7 @@
 /*   By: ide-vill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/16 12:11:06 by ide-vill          #+#    #+#             */
-/*   Updated: 2014/12/16 12:11:08 by ide-vill         ###   ########.fr       */
+/*   Updated: 2014/12/17 16:58:49 by ide-vill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void		ft_put_pixel(t_img *img, t_pt2d p)
 {
 	if ((p.x >= 0 && p.x <= WIN_WIDTH) && (p.y >= 0 && p.y <= WIN_HEIGHT))
-		ft_memcpy(&img->data[p.x * 4 + p.y * img->size_line], &img->color, (size_t)(sizeof(int))); 
-
+		ft_memcpy(&img->data[p.x * 4 + p.y * img->size_line],
+			&img->color, (size_t)(sizeof(int)));
 }
 
 void		ft_draw(t_img *img, t_pt3d p1, t_pt3d p2)
@@ -100,5 +100,4 @@ void		ft_draw_line(t_img *img, t_pt2d p1, t_pt2d p2)
 		ft_draw_line_sub1(img, dx, dy, p1);
 	else
 		ft_draw_line_sub2(img, dx, dy, p1);
-
 }

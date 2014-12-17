@@ -6,15 +6,25 @@
 /*   By: ide-vill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/16 10:58:00 by ide-vill          #+#    #+#             */
-/*   Updated: 2014/12/16 10:58:02 by ide-vill         ###   ########.fr       */
+/*   Updated: 2014/12/17 16:55:40 by ide-vill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+void			ft_err_fd(t_all *all, int ret)
+{
+	if (ret == -1)
+	{
+		free(all);
+		ft_putendl_fd("Put a valid map as argument.", 2);
+		exit (0);
+	}
+}
+
 t_pt3d			**fill_map(t_all *all, t_list *lst)
 {
-	int 		i;
+	int			i;
 	t_pt3d		p;
 	t_list		*tmp;
 
@@ -52,8 +62,7 @@ void			read_map(t_all *all, int fd)
 	all->map.ly = 0;
 	while ((ret = get_next_line(fd, &line)))
 	{
-		if (ret == -1)
-			return ;
+		ft_err_fd(all, ret);
 		tmp = ft_strsplit(line, ' ');
 		free(line);
 		all->map.lx = 0;
@@ -69,4 +78,3 @@ void			read_map(t_all *all, int fd)
 	all->map.tab = fill_map(all, lst);
 	close(fd);
 }
-

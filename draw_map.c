@@ -6,7 +6,7 @@
 /*   By: ide-vill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/16 10:57:40 by ide-vill          #+#    #+#             */
-/*   Updated: 2014/12/16 10:57:42 by ide-vill         ###   ########.fr       */
+/*   Updated: 2014/12/17 16:58:20 by ide-vill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void		ft_draw_map(t_all *all)
 		y = 0;
 		while (y < (all->map.ly))
 		{
-			ft_draw(&all->img,all->map.tab[x][y], all->map.tab[x + 1][y]);
+			ft_draw(&all->img, all->map.tab[x][y], all->map.tab[x + 1][y]);
 			ft_draw(&all->img, all->map.tab[x][y], all->map.tab[x][y + 1]);
 			y++;
 		}

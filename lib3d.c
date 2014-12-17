@@ -6,7 +6,7 @@
 /*   By: ide-vill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/16 10:58:08 by ide-vill          #+#    #+#             */
-/*   Updated: 2014/12/16 10:58:10 by ide-vill         ###   ########.fr       */
+/*   Updated: 2014/12/17 16:57:14 by ide-vill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 t_pt2d		ft_convert_iso(t_pt3d p, t_img *img)
 {
 	t_pt2d	point;
+
 	point.x = p.x - p.y;
 	point.y = p.z + (p.x / img->adj) + (p.y / img->adj);
-	point.x += (WIN_WIDTH / 2);
+	point.x += (WIN_WIDTH / 3);
 	point.y -= (WIN_HEIGHT / 4);
 	point.x += img->posimgx;
 	point.y += img->posimgy;
