@@ -6,7 +6,7 @@
 /*   By: ide-vill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/16 11:58:03 by ide-vill          #+#    #+#             */
-/*   Updated: 2014/12/17 16:57:39 by ide-vill         ###   ########.fr       */
+/*   Updated: 2014/12/21 16:18:11 by ide-vill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,8 @@ int			loop_hook(t_all *all)
 	return (0);
 }
 
-int			key_hook(int keycode, t_all *all)
+void		key_hook_sub(int keycode, t_all *all)
 {
-	if (keycode == 65307)
-	{
-		mlx_destroy_image(all->e.mlx, all->img.img);
-		exit(0);
-	}
 	if (keycode == 65451)
 		alt_up(&all->img);
 	if (keycode == 65453)
@@ -59,6 +54,16 @@ int			key_hook(int keycode, t_all *all)
 		move_left(all);
 	if (keycode == 32)
 		ft_init(all);
+}
+
+int			key_hook(int keycode, t_all *all)
+{
+	if (keycode == 65307)
+	{
+		mlx_destroy_image(all->e.mlx, all->img.img);
+		exit(0);
+	}
+	key_hook_sub(keycode, all);
 	if (keycode == 65464)
 	{
 		all->img.zoom++;
